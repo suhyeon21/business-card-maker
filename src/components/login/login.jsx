@@ -1,22 +1,27 @@
 import React from "react";
 import Footer from "../footer/footer";
 import Header from "../header/header";
+import styles from "./login.module.css";
 
 const Login = ({ authService }) => {
   const onLogin = (event) => {
     authService.login(event.currentTarget.textContent).then(console.log);
   };
   return (
-    <section>
+    <section className={styles.login}>
       <Header />
-      <section>
+      <section className={styles.section}>
         <h1>Log In</h1>
-        <ul>
-          <li>
-            <button>Google</button>
+        <ul className={styles.list}>
+          <li className={styles.item}>
+            <button className={styles.button} onClick={onLogin}>
+              Google
+            </button>
           </li>
-          <li>
-            <button>Github</button>
+          <li className={styles.item}>
+            <button className={styles.button} onClick={onLogin}>
+              Github
+            </button>
           </li>
         </ul>
       </section>
