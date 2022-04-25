@@ -6,7 +6,7 @@ import Header from "../header/header";
 import Preview from "../preview/preview";
 import styles from "./maker.module.css";
 
-const Maker = ({ authService }) => {
+const Maker = ({ FileInput, authService }) => {
   const [cards, setCards] = useState({
     1: {
       id: "1",
@@ -56,7 +56,7 @@ const Maker = ({ authService }) => {
     });
   });
 
-  const CreateOrupdateCard = (card) => {
+  const createOrUpdateCard = (card) => {
     setCards((cards) => {
       const updated = { ...cards };
       updated[card.id] = card;
@@ -77,9 +77,10 @@ const Maker = ({ authService }) => {
       <Header onLogout={onLogout} />
       <div className={styles.container}>
         <Editor
+          FileInput={FileInput}
           cards={cards}
-          addCard={CreateOrupdateCard}
-          updateCard={CreateOrupdateCard}
+          addCard={createOrUpdateCard}
+          updateCard={createOrUpdateCard}
           deleteCard={deleteCard}
         />
         <Preview cards={cards} />
