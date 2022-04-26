@@ -1,7 +1,3 @@
-class ImageUploader {
-  async upload(file) {
-    return "file";
-  }
-}
+class ImageUploader {}
 
 export default ImageUploader;
