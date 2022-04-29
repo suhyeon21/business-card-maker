@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useRef } from "react";
+import styles from "./card_edit_form.module.css";
 import Button from "../button/button";
 
-import styles from "./card_edit_form.module.css";
-
 const CardEditForm = ({ FileInput, card, updateCard, deleteCard }) => {
+  const nameRef = useRef();
+  const companyRef = useRef();
+  const themeRef = useRef();
+  const titleRef = useRef();
+  const emailRef = useRef();
+  const messageRef = useRef();
   const { name, company, title, email, message, theme, fileName, fileURL } =
     card;
 
@@ -29,6 +34,7 @@ const CardEditForm = ({ FileInput, card, updateCard, deleteCard }) => {
         className={styles.input}
         type="text"
         name="name"
+        ref={nameRef}
         value={name}
         onChange={onChange}
       />
@@ -36,12 +42,14 @@ const CardEditForm = ({ FileInput, card, updateCard, deleteCard }) => {
         className={styles.input}
         type="text"
         name="company"
+        ref={companyRef}
         value={company}
         onChange={onChange}
       />
       <select
         className={styles.select}
         name="theme"
+        ref={themeRef}
         value={theme}
         onChange={onChange}
       >
@@ -53,6 +61,7 @@ const CardEditForm = ({ FileInput, card, updateCard, deleteCard }) => {
         className={styles.input}
         type="text"
         name="title"
+        ref={titleRef}
         value={title}
         onChange={onChange}
       />
@@ -60,18 +69,18 @@ const CardEditForm = ({ FileInput, card, updateCard, deleteCard }) => {
         className={styles.input}
         type="text"
         name="email"
+        ref={emailRef}
         value={email}
         onChange={onChange}
       />
       <textarea
         className={styles.textarea}
         name="message"
+        ref={messageRef}
         value={message}
         onChange={onChange}
       />
-      <div className={styles.fileInput}>
-        <FileInput />
-      </div>
+      <div className={styles.fileInput}></div>
       <Button name="Delete" onClick={onSubmit} />
     </form>
   );

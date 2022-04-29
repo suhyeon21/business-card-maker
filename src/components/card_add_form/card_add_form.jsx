@@ -1,7 +1,6 @@
 import React, { useRef } from "react";
-import Button from "../button/button";
-
 import styles from "./card_add_form.module.css";
+import Button from "../button/button";
 
 const CardAddForm = ({ FileInput, onAdd }) => {
   const formRef = useRef();
@@ -11,6 +10,7 @@ const CardAddForm = ({ FileInput, onAdd }) => {
   const titleRef = useRef();
   const emailRef = useRef();
   const messageRef = useRef();
+
   const onSubmit = (event) => {
     event.preventDefault();
     const card = {
@@ -74,9 +74,7 @@ const CardAddForm = ({ FileInput, onAdd }) => {
         name="message"
         placeholder="Message"
       />
-      <div className={styles.fileInput}>
-        <FileInput />
-      </div>
+      <div className={styles.fileInput}></div>
       <Button name="Add" onClick={onSubmit} />
     </form>
   );
